@@ -2,7 +2,7 @@ import requests
 import pytest
 
 
-BASE_URL = "http://host.docker.internal:8080"
+BASE_URL = "http://auth-api:8080"
 
 def test_generate_tokens():
     user_id = "123e4567-e89b-12d3-a456-426614174000"

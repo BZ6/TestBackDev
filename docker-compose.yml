@@ -26,6 +26,23 @@ services:
     volumes:
       - .:/app
     command: sh -c "go mod tidy && go run main.go"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 30s
+  
+  test:
+    image: python:3.12
+    container_name: auth-test
+    working_dir: /tests
+    depends_on:
+      api:
+        condition: service_healthy
+    volumes:
+      - ./tests:/tests
+    command: sh -c "pip install pytest requests && pytest -v --disable-warnings"
 
 volumes:
   db_data:

@@ -45,21 +45,19 @@ touch .env
 - POSTGRES_PASSWORD=db_password
 - POSTGRES_DB=db_name
 
-
 Если хочется запустить приложение, то это можно сделать с помощью докера
 
 ```bash
 docker-compose up --build
 ```
 
-Если хочется запустить тесты, то это можно сделать с помощью докера, но только при
-запущенном приложении!
+Если хочется запустить тесты отдельно, то это можно сделать с помощью докера,
+но только при запущенном приложении!
 
 ```bash
-docker compose --file .\docker-compose-test.yml build
-docker compose --file .\docker-compose-test.yml up
+docker-compose up test
 ```
 
 ## Правки
 
-Хотел добавить CI и объединить в один docker-compose запуск и тест приложения
+Хотел добавить CI
