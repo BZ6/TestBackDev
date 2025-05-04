@@ -2,5 +2,4 @@
 **/.pytest_cache/
 /myenv/
 .env
-go.mod
 go.sum
