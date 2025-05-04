@@ -1,0 +1,8 @@
+services:
+  test:
+    image: python:3.12
+    container_name: auth-test
+    working_dir: /tests
+    volumes:
+      - ./tests:/tests
+    command: sh -c "pip install pytest requests && pytest"
